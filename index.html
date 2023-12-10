@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    
+    <title>Holly and Edmund Wedding</title>
+    <script defer src="./dist/index.js"></script>
+
+</head>
+<body onload="newSetGridPictures(PageType.all, 0);
+setPageType(PageType.all);
+displayPageNumber();
+disableButtonChecker(currentPageType);">
+
+    <div id="navigation">
+    
+    <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
+    setPageType(PageType.all);
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();
+    ">
+        Go to all photos
+    </button>  
+
+    <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
+    setPageType(PageType.board);
+    hideCheckboxes();
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    ">
+      Go to my board 
+    </button>
+
+    <button id="forward" 
+    onclick="changePage(currentPageType, PageDirection.forward); 
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();">Click to go forward</button>
+
+    <button id="back"
+    onclick="changePage(currentPageType, PageDirection.back); 
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();">Click to go back</button>
+
+    
+
+    <h2 id="pageNumber"></h2>
+    <h2  id="currentPageType"></h2>
+
+</div>
+     
+
+    <div id="modal1" class="modal">
+        <img id="modalImage" src="">
+        <span class="close">
+            <button onclick="closeModal()">Close</button>     
+        </span>
+    </div>
+
+    
+    
+
+<div id="table">
+    <form id="tableForm">
+    </input>
+        <table>
+            <tr>
+                <td>
+                    <img id="gridRef1" src="" alt="" onclick="openImageModal(gridLocation1)">
+                    <input class="checkbox" type="checkbox" id="pin1" name="testNamePin1" value="gridRef1"></input>
+                </td>
+                <td>
+                    <img id="gridRef2" src="" alt="" onclick="openImageModal(gridLocation2)">
+                    <input class="checkbox" type="checkbox" id="pin2" name="testNamePin2" value="gridRef2"></input> 
+                </td>
+                <td>
+                    <img id="gridRef3" src="" onclick="openImageModal(gridLocation3)">
+                    <input class="checkbox" type="checkbox" id="pin3" name="testNamePin3" value="gridRef3"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="gridRef4" src="" alt="" onclick="openImageModal(gridLocation4)">
+                    <input class="checkbox" type="checkbox" id="pin4" name="testNamePin4" value="gridRef4"></input> 
+                </td>
+                <td>
+                    <img id="gridRef5" src="" alt="" onclick="openImageModal(gridLocation5)">
+                    <input class="checkbox" type="checkbox" id="pin5" name="testNamePin5" value="gridRef5"></input> 
+                </td>
+                <td>
+                    <img id="gridRef6" src="" alt="" onclick="openImageModal(gridLocation6)">
+                    <input class="checkbox" type="checkbox" id="pin6" name="testNamePin6" value="gridRef6"></input> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="gridRef7" src="" alt="" onclick="openImageModal(gridLocation7)">
+                    <input class="checkbox" type="checkbox" id="pin7" name="testNamePin7" value="gridRef7"></input> 
+                </td>
+                <td>
+                    <img id="gridRef8" src="" alt="" onclick="openImageModal(gridLocation8)">
+                    <input class="checkbox" type="checkbox" id="pin8" name="testNamePin8" value="gridRef8"></input> 
+                </td>
+                <td>
+                    <img id="gridRef9" src="" alt="" onclick="openImageModal(gridLocation9)">
+                    <input class="checkbox" type="checkbox" id="pin9" name="testNamePin9" value="gridRef9"></input> 
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>    
+</body>
+</html>
+

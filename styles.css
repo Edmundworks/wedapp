@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+    height: auto;
+    table-layout: fixed;
+  }
+
+
+
+
+  body {
+    background-color: bisque;
+  }  
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    
+    
+  }
+
+  td {
+    text-align: left;
+    text-indent: 0%;
+    
+    
+  }
+
+  .modal {
+    display: none;
+  }
+
+  .close {
+  position: absolute;
+  top: 150px;
+  left: 35px;
+  }
