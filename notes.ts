@@ -1,5 +1,12 @@
 /*
 
+1. make a branch
+2. make your changes
+3. stage your changes
+4. commit your changes
+5. merge your branch into main
+6. push to github
+
 DONT FORGET TO TSC --w when starting!
 
 how to have a picture open in a large version?
