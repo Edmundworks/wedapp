@@ -1,6 +1,7 @@
 "use strict";
 console.log("Hello, world");
 console.log("test phrase");
+console.log("3rd test");
 const gridLocation1 = document.getElementById("gridRef1");
 const gridLocation2 = document.getElementById("gridRef2");
 const gridLocation3 = document.getElementById("gridRef3");
