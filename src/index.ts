@@ -1,6 +1,11 @@
 console.log("Hello, world");
 console.log("test phrase");
 console.log("3rd test");
+function openLoginModal() {
+    alert("button click worked");
+    // loginModal.style.display = "block";
+    // hideTable();
+}
 
 const gridLocation1 = document.getElementById("gridRef1")! as HTMLImageElement;
 const gridLocation2 = document.getElementById("gridRef2")! as HTMLImageElement;
@@ -265,11 +270,7 @@ function openImageModal(reference: HTMLImageElement) {
     hideTable();
 }
 
-function openLoginModal() {
-    alert("button click worked");
-    // loginModal.style.display = "block";
-    // hideTable();
-}
+
 
 function closeModal(targetModal: HTMLElement) {
     targetModal.style.display = "none";
