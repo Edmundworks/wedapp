@@ -16,6 +16,7 @@ const currentPageText = document.getElementById("currentPageType");
 // Nav buttons
 const navAll = document.getElementById("navAll");
 const navBoard = document.getElementById("navBoard");
+const myButton = document.getElementById("myBTN");
 // form and checkboxes
 const tableForm = document.getElementById("tableForm");
 // add event listener for all checkboxes
@@ -40,6 +41,7 @@ const pageNumberDisplay = document.getElementById("pageNumber");
 const modal = document.getElementById("modal1");
 const modalImage = document.getElementById("modalImage");
 const table = document.getElementById("table");
+const login = document.getElementById("login");
 let gridLocations = [
     gridLocation1,
     gridLocation2,
@@ -229,8 +231,13 @@ function openImageModal(reference) {
     modalImage.src = reference.src;
     hideTable();
 }
-function closeModal() {
-    modal.style.display = "none";
+function openLoginModal() {
+    alert("button click worked");
+    // loginModal.style.display = "block";
+    // hideTable();
+}
+function closeModal(targetModal) {
+    targetModal.style.display = "none";
     showTable();
 }
 function hideTable() {
