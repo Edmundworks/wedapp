@@ -19,8 +19,10 @@ const currentPageText = document.getElementById("currentPageType") as HTMLElemen
 
 // Nav buttons
 
-const navAll = document.getElementById("navAll") as HTMLButtonElement
-const navBoard = document.getElementById("navBoard") as HTMLButtonElement
+const navAll = document.getElementById("navAll") as HTMLButtonElement;
+const navBoard = document.getElementById("navBoard") as HTMLButtonElement;
+
+const myButton = document.getElementById("myBTN") as HTMLButtonElement;
 
 // form and checkboxes
 
