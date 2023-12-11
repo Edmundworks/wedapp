@@ -266,6 +266,7 @@ function openImageModal(reference: HTMLImageElement) {
 }
 
 function openLoginModal() {
+    alert("button click worked");
     loginModal.style.display = "block";
     hideTable();
 }
