@@ -49,3 +49,7 @@ table {
   #login {
     float: right;
   }
+
+  #currentPageType {
+    display: none;
+  }
