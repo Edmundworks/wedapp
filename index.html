@@ -14,24 +14,28 @@ setPageType(PageType.all);
 displayPageNumber();
 disableButtonChecker(currentPageType);">
 
-<div id="header">
-    <span class="backFwdNavigation">
-
-    <button id="back"
-    onclick="changePage(currentPageType, PageDirection.back); 
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();">Click to go back</button>
-
-    <h2 id="pageNumber"></h2>
-
-    <button id="forward" 
-    onclick="changePage(currentPageType, PageDirection.forward); 
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();">Click to go forward</button>    
+<span class="backFwdNavigation">
+    <ul>
+        <li>
+            <button id="back"
+            onclick="changePage(currentPageType, PageDirection.back); 
+            displayPageNumber();
+            disableButtonChecker(currentPageType);
+            clearCheckboxes();
+            toggleDisplayCheckboxes();">Click to go back</button>    
+        </li>
+        <li>
+            <h2 id="pageNumber"></h2>
+        </li>
+        <li>
+            <button id="forward" 
+            onclick="changePage(currentPageType, PageDirection.forward); 
+            displayPageNumber();
+            disableButtonChecker(currentPageType);
+            clearCheckboxes();
+            toggleDisplayCheckboxes();">Click to go forward</button>      
+        </li>
+    </ul>
     </span>
     
     <h2  id="currentPageType"></h2>
@@ -60,7 +64,6 @@ disableButtonChecker(currentPageType);">
         </span>
     
 
-</div>
      
 
     <div id="modal1" class="modal">
