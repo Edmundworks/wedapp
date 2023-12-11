@@ -15,29 +15,6 @@ displayPageNumber();
 disableButtonChecker(currentPageType);">
 
 <div id="header">
-    <span id="navigation">
-    
-    <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
-    setPageType(PageType.all);
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();
-    ">
-        Go to all photos
-    </button>  
-
-    <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
-    setPageType(PageType.board);
-    hideCheckboxes();
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    ">
-      TEST TEXT (rather than go to my board)
-    </button>
-
-    </span>
-
     <span id="backFwdNavigation">
 
     <button id="back"
@@ -59,6 +36,28 @@ disableButtonChecker(currentPageType);">
     
     <h2  id="currentPageType"></h2>
 
+    <span id="navigation">
+    
+        <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
+        setPageType(PageType.all);
+        displayPageNumber();
+        disableButtonChecker(currentPageType);
+        clearCheckboxes();
+        toggleDisplayCheckboxes();
+        ">
+            Go to all photos
+        </button>  
+    
+        <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
+        setPageType(PageType.board);
+        hideCheckboxes();
+        displayPageNumber();
+        disableButtonChecker(currentPageType);
+        ">
+          TEST TEXT (rather than go to my board)
+        </button>
+    
+        </span>
     
 
 </div>
