@@ -40,13 +40,6 @@ disableButtonChecker(currentPageType);">
 
     <span id="backFwdNavigation">
 
-    <button id="forward" 
-    onclick="changePage(currentPageType, PageDirection.forward); 
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();">Click to go forward</button>
-
     <button id="back"
     onclick="changePage(currentPageType, PageDirection.back); 
     displayPageNumber();
@@ -54,12 +47,19 @@ disableButtonChecker(currentPageType);">
     clearCheckboxes();
     toggleDisplayCheckboxes();">Click to go back</button>
 
-    
-
     <h2 id="pageNumber"></h2>
+
+    <button id="forward" 
+    onclick="changePage(currentPageType, PageDirection.forward); 
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();">Click to go forward</button>    
+    </span>
+    
     <h2  id="currentPageType"></h2>
 
-    </span>
+    
 
 </div>
      
