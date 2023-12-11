@@ -14,7 +14,8 @@ setPageType(PageType.all);
 displayPageNumber();
 disableButtonChecker(currentPageType);">
 
-    <div id="navigation">
+<div id="header">
+    <span id="navigation">
     
     <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
     setPageType(PageType.all);
@@ -35,6 +36,10 @@ disableButtonChecker(currentPageType);">
       Go to my board 
     </button>
 
+    </span>
+
+    <span id="backFwdNavigation">
+
     <button id="forward" 
     onclick="changePage(currentPageType, PageDirection.forward); 
     displayPageNumber();
@@ -53,6 +58,8 @@ disableButtonChecker(currentPageType);">
 
     <h2 id="pageNumber"></h2>
     <h2  id="currentPageType"></h2>
+
+    </span>
 
 </div>
      
