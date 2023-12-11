@@ -55,7 +55,7 @@ const loginModal = document.getElementById("loginModal") as HTMLElement;
 const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
 
-const login = document.getElementById("login") as HTMLButtonElement;
+const login = document.getElementById("login") as HTMLElement;
 
 
 let gridLocations = [
