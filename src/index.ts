@@ -54,7 +54,7 @@ const pageNumberDisplay = document.getElementById("pageNumber") as HTMLElement;
 
 //  references for resizing
 const modal = document.getElementById("modal1") as HTMLElement;
-const loginModal = document.getElementById("loginModal") as HTMLElement;
+
 const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
 
