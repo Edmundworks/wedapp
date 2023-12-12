@@ -13,6 +13,10 @@ const gridLocation7 = document.getElementById("gridRef7")! as HTMLImageElement;
 const gridLocation8 = document.getElementById("gridRef8")! as HTMLImageElement;
 const gridLocation9 = document.getElementById("gridRef9")! as HTMLImageElement;
 
+// logg in status
+
+let isLoggedIn = false;
+
 // Current Page
 
 const currentPageText = document.getElementById("currentPageType") as HTMLElement;
@@ -364,6 +368,7 @@ function validateForm() {
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
         alert("Login Successful");
+        isLoggedIn = true;
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     } else {

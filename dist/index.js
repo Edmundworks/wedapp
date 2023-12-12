@@ -11,6 +11,8 @@ const gridLocation6 = document.getElementById("gridRef6");
 const gridLocation7 = document.getElementById("gridRef7");
 const gridLocation8 = document.getElementById("gridRef8");
 const gridLocation9 = document.getElementById("gridRef9");
+// logg in status
+let isLoggedIn = false;
 // Current Page
 const currentPageText = document.getElementById("currentPageType");
 // Nav buttons
@@ -319,6 +321,7 @@ function validateForm() {
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
         alert("Login Successful");
+        isLoggedIn = true;
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     }
