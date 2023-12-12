@@ -352,8 +352,10 @@ function showCheckboxes() {
 
 function toggleNavigation() {
     if (isLoggedIn) {
+        console.log(isLoggedIn);
         navigation.style.visibility = "visible";
     } else {
+        console.log(isLoggedIn);
         navigation.style.visibility = "hidden";
     }
 }
@@ -379,6 +381,7 @@ function validateForm() {
         // Successful login
         alert("Login Successful");
         isLoggedIn = true;
+        console.log(isLoggedIn);
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     } else {
