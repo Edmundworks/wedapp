@@ -13,6 +13,7 @@ const gridLocation8 = document.getElementById("gridRef8");
 const gridLocation9 = document.getElementById("gridRef9");
 // logg in status
 let isLoggedIn = false;
+const navigation = document.getElementById("navigation");
 // Current Page
 const currentPageText = document.getElementById("currentPageType");
 // Nav buttons
@@ -305,6 +306,14 @@ function showCheckboxes() {
     });
 }
 ;
+function toggleNavigation() {
+    if (isLoggedIn) {
+        navigation.style.visibility = "visible";
+    }
+    else {
+        navigation.style.visibility = "hidden";
+    }
+}
 // password validation (replace with call to backend)
 // Define a valid username and password (you should replace these with your actual validation logic)
 const validUsername = 'user123';
@@ -322,6 +331,7 @@ function validateForm() {
         // Successful login
         alert("Login Successful");
         isLoggedIn = true;
+        toggleNavigation();
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     }
