@@ -82,7 +82,7 @@ disableButtonChecker(currentPageType);">
     <div id="loginModal" class="modal">
         <div>
             <h2>Login Modal Header</h2>
-            <form id="myForm">
+            <form id="myForm" onsubmit="return validateForm()" >
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
