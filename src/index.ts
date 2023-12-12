@@ -59,6 +59,8 @@ const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
 
 const loginModal = document.getElementById("login") as HTMLElement;
+const overlay = document.querySelector('.overlay')! as HTMLElement;
+
 
 
 let gridLocations = [
@@ -271,6 +273,7 @@ function openImageModal(reference: HTMLImageElement) {
 function openLoginModal() {
     alert("button click worked");
     loginModal.style.display = "block";
+    overlay.style.display = "block";
     hideTable();
 }
 
