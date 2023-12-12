@@ -379,7 +379,6 @@ function validateForm() {
         // Successful login
         alert("Login Successful");
         isLoggedIn = true;
-        toggleNavigation();
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     } else {
