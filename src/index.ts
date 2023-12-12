@@ -58,7 +58,7 @@ const modal = document.getElementById("modal1") as HTMLElement;
 const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
 
-const login = document.getElementById("login") as HTMLElement;
+const loginModal = document.getElementById("login") as HTMLElement;
 
 
 let gridLocations = [
@@ -270,7 +270,7 @@ function openImageModal(reference: HTMLImageElement) {
 
 function openLoginModal() {
     alert("button click worked");
-    // loginModal.style.display = "block";
+    loginModal.style.display = "block";
     // hideTable();
 }
 

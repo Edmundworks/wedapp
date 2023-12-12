@@ -41,7 +41,7 @@ const pageNumberDisplay = document.getElementById("pageNumber");
 const modal = document.getElementById("modal1");
 const modalImage = document.getElementById("modalImage");
 const table = document.getElementById("table");
-const login = document.getElementById("login");
+const loginModal = document.getElementById("login");
 let gridLocations = [
     gridLocation1,
     gridLocation2,
@@ -233,7 +233,7 @@ function openImageModal(reference) {
 }
 function openLoginModal() {
     alert("button click worked");
-    // loginModal.style.display = "block";
+    loginModal.style.display = "block";
     // hideTable();
 }
 function closeModal(targetModal) {
