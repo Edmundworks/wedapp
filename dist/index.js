@@ -41,7 +41,7 @@ const pageNumberDisplay = document.getElementById("pageNumber");
 const modal = document.getElementById("modal1");
 const modalImage = document.getElementById("modalImage");
 const table = document.getElementById("table");
-const loginModal = document.getElementById("login");
+const loginModal = document.getElementById("loginModal");
 let gridLocations = [
     gridLocation1,
     gridLocation2,
