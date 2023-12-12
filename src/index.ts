@@ -272,6 +272,7 @@ function openImageModal(reference: HTMLImageElement) {
 function openLoginModal() {
     console.log("openLoginModal function called success");
     loginModal.style.display = "block";
+    hideTable();
 }
 
 function closeModal(targetModal: HTMLElement) {

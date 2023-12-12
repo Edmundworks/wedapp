@@ -234,6 +234,7 @@ function openImageModal(reference) {
 function openLoginModal() {
     console.log("openLoginModal function called success");
     loginModal.style.display = "block";
+    hideTable();
 }
 function closeModal(targetModal) {
     targetModal.style.display = "none";
