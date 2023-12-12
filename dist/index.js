@@ -37,11 +37,12 @@ checkboxes.forEach((item) => {
 const forwardButton = document.getElementById("forward");
 const backButton = document.getElementById("back");
 const pageNumberDisplay = document.getElementById("pageNumber");
-//  references for resizing
+//  modals and tables
 const modal = document.getElementById("modal1");
 const modalImage = document.getElementById("modalImage");
 const table = document.getElementById("table");
 const loginModal = document.getElementById("loginModal");
+// 
 let gridLocations = [
     gridLocation1,
     gridLocation2,
@@ -302,3 +303,28 @@ function showCheckboxes() {
     });
 }
 ;
+// password validation (replace with call to backend)
+// Define a valid username and password (you should replace these with your actual validation logic)
+const validUsername = 'user123';
+const validPassword = 'pass123';
+// Function to validate the form on submission
+function validateForm() {
+    // Get references to form elements and error message
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('pword');
+    // Get the entered username and password
+    const enteredUsername = usernameInput.value;
+    const enteredPassword = passwordInput.value;
+    // Perform validation (replace with your own validation logic)
+    if (enteredUsername === validUsername && enteredPassword === validPassword) {
+        // Successful login
+        alert("Login Successful");
+        // You can redirect the user or perform other actions here
+        return true; // Allow form submission
+    }
+    else {
+        // Failed login
+        alert("invalid username or password");
+        return false; // Prevent form submission
+    }
+}

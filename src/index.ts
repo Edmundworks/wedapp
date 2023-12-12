@@ -52,15 +52,13 @@ const backButton = document.getElementById("back") as HTMLButtonElement;
 
 const pageNumberDisplay = document.getElementById("pageNumber") as HTMLElement;
 
-//  references for resizing
+//  modals and tables
 const modal = document.getElementById("modal1") as HTMLElement;
-
 const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
-
 const loginModal = document.getElementById("loginModal") as HTMLElement;
 
-
+// 
 
 let gridLocations = [
     gridLocation1,
@@ -345,3 +343,32 @@ function showCheckboxes() {
         const checkbox = item as HTMLInputElement;
         checkbox.style.visibility = "visible";
 })};
+
+// password validation (replace with call to backend)
+
+// Define a valid username and password (you should replace these with your actual validation logic)
+const validUsername = 'user123';
+const validPassword = 'pass123';
+
+// Function to validate the form on submission
+function validateForm() {
+    // Get references to form elements and error message
+    const usernameInput = document.getElementById('username') as HTMLInputElement;
+    const passwordInput = document.getElementById('pword') as HTMLInputElement;
+
+    // Get the entered username and password
+    const enteredUsername = usernameInput.value;
+    const enteredPassword = passwordInput.value;
+
+    // Perform validation (replace with your own validation logic)
+    if (enteredUsername === validUsername && enteredPassword === validPassword) {
+        // Successful login
+        alert("Login Successful");
+        // You can redirect the user or perform other actions here
+        return true; // Allow form submission
+    } else {
+        // Failed login
+        alert("invalid username or password");
+        return false; // Prevent form submission
+    }
+}
