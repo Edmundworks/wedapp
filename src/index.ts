@@ -1,6 +1,5 @@
 console.log("Hello, world");
-console.log("test phrase");
-console.log("3rd test");
+console.log("good morning");
 
 
 const gridLocation1 = document.getElementById("gridRef1")! as HTMLImageElement;
