@@ -46,9 +46,10 @@ table {
   left: 35px;
   }
 
-  #login {
+  .auth-button {
     float: right;
   }
+
 
   #currentPageType {
     display: none;

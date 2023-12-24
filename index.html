@@ -72,8 +72,12 @@ toggleNavigation();">
         </ul>
         </span>
 
-        <span id="login">
+        <span id="login" class="auth-button">
             <button id="loginBtn" onclick="openLoginModal()">Login</button>
+        </span>
+
+        <span id="logout" class="auth-button">
+            <button id="logoutBtn">Logout</button>
         </span>
 
     <div id="modal1" class="modal">
@@ -85,7 +89,7 @@ toggleNavigation();">
 
     <div id="loginModal" class="modal">
         <div>
-            <h2>Login Modal Header</h2>
+            <h2>Login</h2>
             <form id="myForm" onsubmit="return validateForm()" >
                 <div class="form-group">
                     <label for="username">Username:</label>
