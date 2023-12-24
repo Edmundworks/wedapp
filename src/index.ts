@@ -18,6 +18,7 @@ let isLoggedIn = false;
 const storedUser = localStorage.getItem('currentUser');
 
 
+
 const navigation = document.getElementById("navigation") as HTMLElement;
 
 // Current Page
@@ -373,8 +374,13 @@ function toggleNavigation() {
     }
 }
 
-function hideLogout() {
-    hideAuthButton("logout");
+function hideAuth() {
+    if (storedUser) {
+        hideAuthButton("logout");
+    } else {
+        hideAuthButton("login");
+    }
+    
 }
 
 // password validation (replace with call to backend)
