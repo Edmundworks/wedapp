@@ -326,6 +326,9 @@ function toggleNavigation() {
         navigation.style.visibility = "visible";
     }
 }
+function hideLogout() {
+    hideAuthButton("logout");
+}
 // password validation (replace with call to backend)
 // Define a valid username and password (you should replace these with your actual validation logic)
 const validUsername = 'user123';
