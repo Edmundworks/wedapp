@@ -10,8 +10,9 @@ const gridLocation6 = document.getElementById("gridRef6");
 const gridLocation7 = document.getElementById("gridRef7");
 const gridLocation8 = document.getElementById("gridRef8");
 const gridLocation9 = document.getElementById("gridRef9");
-// logg in status
+// log in status
 let isLoggedIn = false;
+const storedUser = localStorage.getItem('currentUser');
 const navigation = document.getElementById("navigation");
 // Current Page
 const currentPageText = document.getElementById("currentPageType");
@@ -306,13 +307,15 @@ function showCheckboxes() {
 }
 ;
 function toggleNavigation() {
-    if (isLoggedIn) {
+    if (storedUser === null || storedUser === '') {
+        console.log('currentUser is blank');
         console.log(isLoggedIn);
-        navigation.style.visibility = "visible";
+        console.log("no current user");
+        navigation.style.visibility = "hidden";
     }
     else {
         console.log(isLoggedIn);
-        navigation.style.visibility = "hidden";
+        navigation.style.visibility = "visible";
     }
 }
 // password validation (replace with call to backend)
@@ -327,12 +330,13 @@ function validateForm() {
     // Get the entered username and password
     const enteredUsername = usernameInput.value;
     const enteredPassword = passwordInput.value;
-    // Perform validation (replace with your own validation logic)
+    // password validation
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
-        alert("Login Successful");
+        localStorage.setItem('currentUser', enteredUsername);
         isLoggedIn = true;
         console.log(isLoggedIn);
+        alert("Login Successful");
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     }
