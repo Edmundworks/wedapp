@@ -250,6 +250,14 @@ function hideTable() {
 function showTable() {
     table.style.display = "block";
 }
+function hideAuthButton(targetButton) {
+    let target = document.getElementById(targetButton);
+    target.style.display = "none";
+}
+function showAuthButton(targetButton) {
+    let target = document.getElementById(targetButton);
+    target.style.display = "span";
+}
 function hideCell(id) {
     let currentCell = document.getElementById(id);
     currentCell.style.display = "none";
@@ -337,6 +345,8 @@ function validateForm() {
         isLoggedIn = true;
         console.log(isLoggedIn);
         alert("Login Successful");
+        hideAuthButton("login");
+        showAuthButton("logout");
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     }

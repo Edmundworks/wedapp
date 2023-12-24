@@ -293,6 +293,16 @@ function showTable() {
     table.style.display ="block";
 }
 
+function hideAuthButton(targetButton: string) {
+    let target = document.getElementById(targetButton) as HTMLButtonElement;
+    target.style.display = "none";
+}
+
+function showAuthButton(targetButton: string) {
+    let target = document.getElementById(targetButton) as HTMLButtonElement;
+    target.style.display = "span";
+}
+
 function hideCell(id: string) {
     let currentCell = document.getElementById(id) as HTMLTableCellElement;
     currentCell.style.display = "none";
@@ -386,6 +396,8 @@ function validateForm() {
         isLoggedIn = true;
         console.log(isLoggedIn);
         alert("Login Successful");
+        hideAuthButton("login");
+        showAuthButton("logout");
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     } else {
