@@ -206,13 +206,9 @@ function setPageType(typeToggle: PageType) {
     if (typeToggle === PageType.all) {
         currentPageType = PageType.all
         currentPageText.textContent = "All Photos";
-        navAll.hidden = true;
-        navBoard.hidden = false;
     } else if (typeToggle === PageType.board) {
        currentPageType = PageType.board;
        currentPageText.textContent = "Your board";
-       navAll.hidden = false;
-       navBoard.hidden = true; 
     }
 
 }
