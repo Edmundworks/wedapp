@@ -206,9 +206,8 @@ function disableButtonChecker(type) {
         targetCurrentPage = boardCurrentPage;
         targetPageCount = boardPageCount;
     }
-    forwardButton.hidden = false;
-    backButton.hidden = false;
-    //element.style.removeProperty("color");
+    forwardButton.style.removeProperty("color");
+    backButton.style.removeProperty("color");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
             forwardButton.style.color = "grey";
