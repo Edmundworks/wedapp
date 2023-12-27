@@ -392,6 +392,7 @@ function hideAuthOnStart() {
 }
 
 // the issue is that the login button doesn't toggle back on when I click logout
+// WHY DOESN@T LOGOUT WORK?
 
 
 function logouter() {
@@ -400,6 +401,7 @@ function logouter() {
     console.log(storedUser);
     hideAuthOnStart();
     toggleNavigation();
+    login.style.display = "block";
     
 }
 

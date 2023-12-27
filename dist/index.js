@@ -340,12 +340,14 @@ function hideAuthOnStart() {
     }
 }
 // the issue is that the login button doesn't toggle back on when I click logout
+// WHY DOESN@T LOGOUT WORK?
 function logouter() {
     localStorage.removeItem('currentUser');
     storedUser = localStorage.getItem('currentUser');
     console.log(storedUser);
     hideAuthOnStart();
     toggleNavigation();
+    login.style.display = "block";
 }
 // password validation (replace with call to backend)
 // Define a valid username and password (you should replace these with your actual validation logic)
