@@ -5,67 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     
-    <title>ALL CAPS TEST</title>
+    <title>Good morning</title>
     <script defer src="./dist/index.js"></script>
 
 </head>
 <body onload="newSetGridPictures(PageType.all, 0);
 setPageType(PageType.all);
 displayPageNumber();
-disableButtonChecker(currentPageType);">
+disableButtonChecker(currentPageType);
+toggleNavigation();
+hideAuthOnStart();
+hideCheckboxesonStart();">
 
-    <div id="navigation">
+<span id="backFwdNavigation">
+    <ul>
+        <li>
+            <button id="back"
+            onclick="changePage(currentPageType, PageDirection.back); 
+            displayPageNumber();
+            disableButtonChecker(currentPageType);
+            clearCheckboxes();
+            toggleDisplayCheckboxes();">Click to go back</button>    
+        </li>
+        <li>
+            <h2 id="pageNumber"></h2>
+        </li>
+        <li>
+            <button id="forward" 
+            onclick="changePage(currentPageType, PageDirection.forward); 
+            displayPageNumber();
+            disableButtonChecker(currentPageType);
+            clearCheckboxes();
+            toggleDisplayCheckboxes();">Click to go forward</button>      
+        </li>
+    </ul>
+    </span>
     
-    <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
-    setPageType(PageType.all);
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();
-    ">
-        Go to all photos
-    </button>  
-
-    <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
-    setPageType(PageType.board);
-    hideCheckboxes();
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    ">
-      Go to my board 
-    </button>
-
-    <button id="forward" 
-    onclick="changePage(currentPageType, PageDirection.forward); 
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();">Click to go forward</button>
-
-    <button id="back"
-    onclick="changePage(currentPageType, PageDirection.back); 
-    displayPageNumber();
-    disableButtonChecker(currentPageType);
-    clearCheckboxes();
-    toggleDisplayCheckboxes();">Click to go back</button>
-
+    
+        <h2  id="currentPageType" class="hiddenText"></h2>
     
 
-    <h2 id="pageNumber"></h2>
-    <h2  id="currentPageType"></h2>
+    <span id="navigation">
+        <ul>
+            <li>
+                <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
+                setPageType(PageType.all);
+                displayPageNumber();
+                disableButtonChecker(currentPageType);
+                clearCheckboxes();
+                toggleDisplayCheckboxes();
+        ">
+            Go to all photos
+            </button>
+            </li>
+            <li>
+                <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
+        setPageType(PageType.board);
+        hideCheckboxes();
+        displayPageNumber();
+        disableButtonChecker(currentPageType);
+        ">
+          Go to favourites
+        </button>
+            </li>
+            <li>
+                <button id="share">Share</button>
+            </li>
+        </ul>
+        </span>
 
-</div>
-     
+        <span id="auth"> 
+
+        <span id="login" class="auth-button">
+            <button id="loginBtn" onclick="openLoginModal()">Login</button>
+        </span>
+
+        <span id="logout" class="auth-button">
+            <button id="logoutBtn" onclick="logouter()" >Logout</button>
+        </span>
+
+        </span>
 
     <div id="modal1" class="modal">
         <img id="modalImage" src="">
         <span class="close">
-            <button onclick="closeModal()">Close</button>     
+            <button onclick="closeModal(modal)">Close</button>     
         </span>
     </div>
 
+    <div id="loginModal" class="modal">
+        <div>
+            <h2>Login</h2>
+            <form id="myForm" onsubmit="return validateForm()" >
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
     
+                <div class="form-group">
+                    <label for="pword">Password:</label>
+                    <input type="text" id="pword" name="pword" required>
+                </div>
     
+                <div class="form-group">
+                    <button type="submit">Log In</button>
+                </div>
+            </form>
+            <button onclick="closeModal(loginModal)">Close</button>
+        </div>
+        
+    </div>
 
 <div id="table">
     <form id="tableForm">
@@ -115,7 +164,6 @@ disableButtonChecker(currentPageType);">
             </tr>
         </table>
     </form>
-</div>    
 </body>
 </html>
 

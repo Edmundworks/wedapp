@@ -26,6 +26,16 @@ table {
     
   }
 
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+  }
+
   .modal {
     display: none;
   }
@@ -35,3 +45,24 @@ table {
   top: 150px;
   left: 35px;
   }
+
+  .auth-button {
+    float: right;
+  }
+
+
+  #currentPageType {
+    display: none;
+  }
+
+  #loginModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}

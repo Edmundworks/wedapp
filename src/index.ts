@@ -1,6 +1,6 @@
 console.log("Hello, world");
-console.log("test phrase");
-console.log("3rd test");
+console.log("good morning");
+
 
 const gridLocation1 = document.getElementById("gridRef1")! as HTMLImageElement;
 const gridLocation2 = document.getElementById("gridRef2")! as HTMLImageElement;
@@ -12,14 +12,25 @@ const gridLocation7 = document.getElementById("gridRef7")! as HTMLImageElement;
 const gridLocation8 = document.getElementById("gridRef8")! as HTMLImageElement;
 const gridLocation9 = document.getElementById("gridRef9")! as HTMLImageElement;
 
+// log in status
+
+let isLoggedIn = false;
+let storedUser: string | null = localStorage.getItem('currentUser');
+
+
+
+const navigation = document.getElementById("navigation") as HTMLElement;
+
 // Current Page
 
 const currentPageText = document.getElementById("currentPageType") as HTMLElement;
 
 // Nav buttons
 
-const navAll = document.getElementById("navAll") as HTMLButtonElement
-const navBoard = document.getElementById("navBoard") as HTMLButtonElement
+const navAll = document.getElementById("navAll") as HTMLButtonElement;
+const navBoard = document.getElementById("navBoard") as HTMLButtonElement;
+
+const myButton = document.getElementById("myBTN") as HTMLButtonElement;
 
 // form and checkboxes
 
@@ -49,11 +60,18 @@ const backButton = document.getElementById("back") as HTMLButtonElement;
 
 const pageNumberDisplay = document.getElementById("pageNumber") as HTMLElement;
 
-//  references for resizing
+//  modals and tables
 const modal = document.getElementById("modal1") as HTMLElement;
 const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
+const loginModal = document.getElementById("loginModal") as HTMLElement;
 
+// auth buttons
+
+const login = document.getElementById("login") as HTMLElement;
+const logout = document.getElementById("logout") as HTMLElement;
+
+// 
 
 let gridLocations = [
     gridLocation1,
@@ -262,8 +280,14 @@ function openImageModal(reference: HTMLImageElement) {
     hideTable();
 }
 
-function closeModal() {
-    modal.style.display = "none";
+function openLoginModal() {
+    console.log("openLoginModal function called success");
+    loginModal.style.display = "block";
+    hideTable();
+}
+
+function closeModal(targetModal: HTMLElement) {
+    targetModal.style.display = "none";
     showTable();
 }
 
@@ -273,6 +297,16 @@ function hideTable() {
 
 function showTable() {
     table.style.display ="block";
+}
+
+function hideAuthButton(targetButton: string) {
+    let target = document.getElementById(targetButton) as HTMLElement;
+    target.style.display = "none";
+}
+
+function showAuthButton(targetButton: string) {
+    let target = document.getElementById(targetButton) as HTMLElement;
+    target.style.display = "span";
 }
 
 function hideCell(id: string) {
@@ -332,3 +366,87 @@ function showCheckboxes() {
         const checkbox = item as HTMLInputElement;
         checkbox.style.visibility = "visible";
 })};
+
+function toggleNavigation() {
+    if (storedUser === null || storedUser === '') {
+        console.log('currentUser is blank');
+        console.log(isLoggedIn);
+        console.log("no current user")
+        navigation.style.visibility = "hidden";
+    } else {
+        console.log(isLoggedIn);
+        navigation.style.visibility = "visible";
+    }
+}
+
+
+function hideAuthOnStart() {
+    if (storedUser) {
+        hideAuthButton("login");
+        showAuthButton("logout");
+    } else {
+        hideAuthButton("logout");
+        showAuthButton("login");
+    }
+    
+}
+
+function hideCheckboxesonStart() {
+    if (storedUser) {
+        showCheckboxes();
+    }
+    else {
+        hideCheckboxes();
+    }
+}
+
+// the issue is that the login button doesn't toggle back on when I click logout
+// WHY DOESN@T LOGOUT WORK?
+
+
+function logouter() {
+    localStorage.removeItem('currentUser')
+    storedUser =  localStorage.getItem('currentUser');
+    console.log(storedUser);
+    hideAuthOnStart();
+    toggleNavigation();
+    alert("Logged Out");
+    login.style.display = "block";
+    
+}
+
+// password validation (replace with call to backend)
+
+// Define a valid username and password (you should replace these with your actual validation logic)
+const validUsername = 'user123';
+const validPassword = 'pass123';
+
+// Function to validate the form on submission
+function validateForm() {
+    // Get references to form elements and error message
+    const usernameInput = document.getElementById('username') as HTMLInputElement;
+    const passwordInput = document.getElementById('pword') as HTMLInputElement;
+
+    // Get the entered username and password
+    const enteredUsername = usernameInput.value;
+    const enteredPassword = passwordInput.value;
+
+    // password validation
+    if (enteredUsername === validUsername && enteredPassword === validPassword) {
+        // Successful login
+        localStorage.setItem('currentUser', enteredUsername);
+        storedUser = localStorage.getItem(`currentUser`);
+        isLoggedIn = true;
+        console.log(isLoggedIn);
+        console.log(storedUser);
+        alert("Login Successful");
+        hideAuthButton("login");
+        showAuthButton("logout");
+        // You can redirect the user or perform other actions here
+        return true; // Allow form submission
+    } else {
+        // Failed login
+        alert("invalid username or password");
+        return false; // Prevent form submission
+    }
+}
