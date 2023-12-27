@@ -376,11 +376,11 @@ function toggleNavigation() {
 
 function hideAuthOnStart() {
     if (storedUser) {
-        hideAuthButton("logout");
-        showAuthButton("login");
-    } else {
         hideAuthButton("login");
         showAuthButton("logout");
+    } else {
+        hideAuthButton("logout");
+        showAuthButton("login");
     }
     
 }
