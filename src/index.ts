@@ -389,8 +389,10 @@ function logout() {
     localStorage.setItem('currentUser', 'null');
     storedUser =  localStorage.getItem('currentUser');
     console.log(storedUser);
-    hideAuthButton("logout");
     showAuthButton("login");
+    hideAuthButton("logout");
+    toggleNavigation();
+    
 }
 
 // password validation (replace with call to backend)
