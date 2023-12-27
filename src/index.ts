@@ -379,21 +379,26 @@ function toggleNavigation() {
     }
 }
 
+
 function hideAuthOnStart() {
     if (storedUser) {
         hideAuthButton("login");
         showAuthButton("logout");
+    } else {
+        hideAuthButton("logout");
+        showAuthButton("login");
     }
     
 }
+
+// the issue is that the login button doesn't toggle back on when I click logout
+
 
 function logouter() {
     localStorage.removeItem('currentUser')
     storedUser =  localStorage.getItem('currentUser');
     console.log(storedUser);
-    showAuthButton("login");
-    console.log("IT GOT TO REFERENCE POINT");
-    hideAuthButton("logout");
+    hideAuthOnStart();
     toggleNavigation();
     
 }
