@@ -391,7 +391,7 @@ function hideAuthOnStart() {
 }
 
 function logouter() {
-    localStorage.setItem('currentUser', 'null');
+    localStorage.removeItem('currentUser')
     storedUser =  localStorage.getItem('currentUser');
     console.log(storedUser);
     showAuthButton("login");
