@@ -97,6 +97,7 @@ body {
 #pageNumber:hover {
   background-color: #333;
   color: #f2f2f2;
+  cursor: default;
 }
 
 .topnav a.active {
