@@ -24,15 +24,15 @@ hideCheckboxesonStart();">
 <span id="backFwdNavigation">
     <ul>
         <li>
-            <a id="pageNumber"></a>
-        </li>
-        <li>
             <a id="back"
             onclick="changePage(currentPageType, PageDirection.back); 
             displayPageNumber();
             disableButtonChecker(currentPageType);
             clearCheckboxes();
             toggleDisplayCheckboxes();">Back</a>    
+        </li>
+        <li>
+            <a id="pageNumber"></a>
         </li>
         <li>
             <a id="forward" 
