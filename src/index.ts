@@ -401,6 +401,7 @@ function logouter() {
     console.log(storedUser);
     hideAuthOnStart();
     toggleNavigation();
+    alert("Logged Out");
     login.style.display = "block";
     
 }
