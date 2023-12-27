@@ -361,6 +361,7 @@ function validateForm() {
         storedUser = localStorage.setItem('currentUser', enteredUsername);
         isLoggedIn = true;
         console.log(isLoggedIn);
+        console.log(storedUser);
         alert("Login Successful");
         hideAuthButton("login");
         showAuthButton("logout");
