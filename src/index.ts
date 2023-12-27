@@ -396,7 +396,15 @@ function hideCheckboxesonStart() {
     }
 }
 
-function toggleActive(element: HTMLElement) {
+  function activateElement(element: HTMLElement) {
+    // Get all elements with the "active" class
+    const activeElements = document.querySelectorAll('.active');
+  
+    // Iterate through each active element and remove the "active" class
+    activeElements.forEach((activeElement) => {
+      activeElement.classList.remove('active');
+    });
+  
     // Toggle the "active" class on the clicked element
     element.classList.toggle('active');
   }
