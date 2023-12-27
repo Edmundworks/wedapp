@@ -247,23 +247,31 @@ function disableButtonChecker(type: PageType) {
     }
 
     forwardButton.style.removeProperty("color");
+    forwardButton.classList.remove("grey-hover");
     backButton.style.removeProperty("color");
+    backButton.classList.remove("grey-hover");
 
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
             forwardButton.style.color = "grey";
+            forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
+            backButton.classList.add("grey-hover");
         } else { 
             forwardButton.hidden = false;
             backButton.style.color = "grey";
+            backButton.classList.add("grey-hover");
         }
     } 
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
             forwardButton.style.color = "grey";
+            forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
+            backButton.classList.add("grey-hover");
         } else {
             forwardButton.style.color = "grey";
+            forwardButton.classList.add("grey-hover");
             backButton.hidden = false;
          }
         
