@@ -358,7 +358,8 @@ function validateForm() {
     // password validation
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
-        storedUser = localStorage.setItem('currentUser', enteredUsername);
+        localStorage.setItem('currentUser', enteredUsername);
+        storedUser = localStorage.getItem(`currentUser`);
         isLoggedIn = true;
         console.log(isLoggedIn);
         console.log(storedUser);

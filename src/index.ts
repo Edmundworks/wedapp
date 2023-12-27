@@ -15,7 +15,7 @@ const gridLocation9 = document.getElementById("gridRef9")! as HTMLImageElement;
 // log in status
 
 let isLoggedIn = false;
-let storedUser: string | null | void = localStorage.getItem('currentUser');
+let storedUser: string | null = localStorage.getItem('currentUser');
 
 
 
@@ -412,7 +412,8 @@ function validateForm() {
     // password validation
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
-        storedUser = localStorage.setItem('currentUser', enteredUsername);
+        localStorage.setItem('currentUser', enteredUsername);
+        storedUser = localStorage.getItem(`currentUser`);
         isLoggedIn = true;
         console.log(isLoggedIn);
         console.log(storedUser);
