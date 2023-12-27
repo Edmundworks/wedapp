@@ -300,12 +300,12 @@ function showTable() {
 }
 
 function hideAuthButton(targetButton: string) {
-    let target = document.getElementById(targetButton) as HTMLButtonElement;
+    let target = document.getElementById(targetButton) as HTMLElement;
     target.style.display = "none";
 }
 
 function showAuthButton(targetButton: string) {
-    let target = document.getElementById(targetButton) as HTMLButtonElement;
+    let target = document.getElementById(targetButton) as HTMLElement;
     target.style.display = "span";
 }
 
