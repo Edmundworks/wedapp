@@ -395,6 +395,7 @@ function logouter() {
     storedUser =  localStorage.getItem('currentUser');
     console.log(storedUser);
     showAuthButton("login");
+    console.log("IT GOT TO REFERENCE POINT");
     hideAuthButton("logout");
     toggleNavigation();
     
