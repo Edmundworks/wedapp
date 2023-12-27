@@ -15,7 +15,7 @@ const gridLocation9 = document.getElementById("gridRef9")! as HTMLImageElement;
 // log in status
 
 let isLoggedIn = false;
-let storedUser = localStorage.getItem('currentUser');
+let storedUser: string | null | void = localStorage.getItem('currentUser');
 
 
 
@@ -374,11 +374,13 @@ function toggleNavigation() {
     }
 }
 
-function hideAuth() {
+function hideAuthOnStart() {
     if (storedUser) {
         hideAuthButton("logout");
+        showAuthButton("login");
     } else {
         hideAuthButton("login");
+        showAuthButton("logout");
     }
     
 }
@@ -410,7 +412,7 @@ function validateForm() {
     // password validation
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
-        localStorage.setItem('currentUser', enteredUsername);
+        storedUser = localStorage.setItem('currentUser', enteredUsername);
         isLoggedIn = true;
         console.log(isLoggedIn);
         alert("Login Successful");

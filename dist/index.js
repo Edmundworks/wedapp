@@ -326,12 +326,14 @@ function toggleNavigation() {
         navigation.style.visibility = "visible";
     }
 }
-function hideAuth() {
+function hideAuthOnStart() {
     if (storedUser) {
         hideAuthButton("logout");
+        showAuthButton("login");
     }
     else {
         hideAuthButton("login");
+        showAuthButton("logout");
     }
 }
 function logout() {
@@ -356,7 +358,7 @@ function validateForm() {
     // password validation
     if (enteredUsername === validUsername && enteredPassword === validPassword) {
         // Successful login
-        localStorage.setItem('currentUser', enteredUsername);
+        storedUser = localStorage.setItem('currentUser', enteredUsername);
         isLoggedIn = true;
         console.log(isLoggedIn);
         alert("Login Successful");
