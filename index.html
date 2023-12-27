@@ -52,28 +52,28 @@ hideCheckboxesonStart();">
     <span id="navigation">
         <ul>
             <li>
-                <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
+                <a id="navAll" onclick="newSetGridPictures(PageType.all, 0);
                 setPageType(PageType.all);
                 displayPageNumber();
                 disableButtonChecker(currentPageType);
                 clearCheckboxes();
                 toggleDisplayCheckboxes();
         ">
-            Go to all photos
-            </button>
+            All
+            </a>
             </li>
             <li>
-                <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
+                <a id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
         setPageType(PageType.board);
         hideCheckboxes();
         displayPageNumber();
         disableButtonChecker(currentPageType);
         ">
-          Go to favourites
-        </button>
+          Favourites
+            </a>
             </li>
             <li>
-                <button id="share">Share</button>
+                <a id="share">Share</a>
             </li>
         </ul>
         </span>
