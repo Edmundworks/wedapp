@@ -339,6 +339,14 @@ function hideAuthOnStart() {
         showAuthButton("login");
     }
 }
+function hideCheckboxesonStart() {
+    if (storedUser) {
+        showCheckboxes();
+    }
+    else {
+        hideCheckboxes();
+    }
+}
 // the issue is that the login button doesn't toggle back on when I click logout
 // WHY DOESN@T LOGOUT WORK?
 function logouter() {
