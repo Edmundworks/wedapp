@@ -343,6 +343,10 @@ function hideCheckboxesonStart() {
         hideCheckboxes();
     }
 }
+function toggleActive(element) {
+    // Toggle the "active" class on the clicked element
+    element.classList.toggle('active');
+}
 // the issue is that the login button doesn't toggle back on when I click logout
 // WHY DOESN@T LOGOUT WORK?
 function logouter() {
