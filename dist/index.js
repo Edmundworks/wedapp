@@ -258,7 +258,8 @@ function hideAuthButton(targetButton) {
     target.style.display = "none";
 }
 function showAuthButton(targetButton) {
-    targetButton.style.display = "span";
+    let target = document.getElementById(targetButton);
+    target.style.display = "span";
 }
 function hideCell(id) {
     let currentCell = document.getElementById(id);
@@ -331,18 +332,14 @@ function toggleNavigation() {
 function hideAuthOnStart() {
     if (storedUser) {
         hideAuthButton("login");
-        showAuthButton(logout);
-    }
-    else {
-        hideAuthButton("logout");
-        showAuthButton(login);
+        showAuthButton("logout");
     }
 }
 function logouter() {
     localStorage.removeItem('currentUser');
     storedUser = localStorage.getItem('currentUser');
     console.log(storedUser);
-    showAuthButton(login);
+    showAuthButton("login");
     console.log("IT GOT TO REFERENCE POINT");
     hideAuthButton("logout");
     toggleNavigation();
@@ -369,7 +366,7 @@ function validateForm() {
         console.log(storedUser);
         alert("Login Successful");
         hideAuthButton("login");
-        showAuthButton(logout);
+        showAuthButton("logout");
         // You can redirect the user or perform other actions here
         return true; // Allow form submission
     }
