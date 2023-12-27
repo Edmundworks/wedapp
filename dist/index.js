@@ -12,7 +12,7 @@ const gridLocation8 = document.getElementById("gridRef8");
 const gridLocation9 = document.getElementById("gridRef9");
 // log in status
 let isLoggedIn = false;
-const storedUser = localStorage.getItem('currentUser');
+let storedUser = localStorage.getItem('currentUser');
 const navigation = document.getElementById("navigation");
 // Current Page
 const currentPageText = document.getElementById("currentPageType");
@@ -333,6 +333,13 @@ function hideAuth() {
     else {
         hideAuthButton("login");
     }
+}
+function logout() {
+    localStorage.setItem('currentUser', 'null');
+    storedUser = localStorage.getItem('currentUser');
+    console.log(storedUser);
+    hideAuthButton("logout");
+    showAuthButton("login");
 }
 // password validation (replace with call to backend)
 // Define a valid username and password (you should replace these with your actual validation logic)
