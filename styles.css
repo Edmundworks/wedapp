@@ -94,7 +94,7 @@ body {
   color: black;
 }
 
-#pageNumber a:hover {
+#pageNumber:hover {
   background-color: #333;
   color: #f2f2f2;
 }
