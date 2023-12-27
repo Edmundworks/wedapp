@@ -208,23 +208,24 @@ function disableButtonChecker(type) {
     }
     forwardButton.hidden = false;
     backButton.hidden = false;
+    //element.style.removeProperty("color");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
-            forwardButton.hidden = true;
-            backButton.hidden = true;
+            forwardButton.style.color = "grey";
+            backButton.style.color = "grey";
         }
         else {
             forwardButton.hidden = false;
-            backButton.hidden = true;
+            backButton.style.color = "grey";
         }
     }
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
-            forwardButton.hidden = true;
-            backButton.hidden = true;
+            forwardButton.style.color = "grey";
+            backButton.style.color = "grey";
         }
         else {
-            forwardButton.hidden = true;
+            forwardButton.style.color = "grey";
             backButton.hidden = false;
         }
     }
