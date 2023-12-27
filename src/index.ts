@@ -66,6 +66,11 @@ const modalImage = document.getElementById("modalImage") as HTMLImageElement;
 const table = document.getElementById("table") as HTMLTableElement;
 const loginModal = document.getElementById("loginModal") as HTMLElement;
 
+// auth buttons
+
+const login = document.getElementById("login") as HTMLElement;
+const logout = document.getElementById("logout") as HTMLElement;
+
 // 
 
 let gridLocations = [
@@ -385,7 +390,7 @@ function hideAuthOnStart() {
     
 }
 
-function logout() {
+function logouter() {
     localStorage.setItem('currentUser', 'null');
     storedUser =  localStorage.getItem('currentUser');
     console.log(storedUser);

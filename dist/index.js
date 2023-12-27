@@ -45,6 +45,9 @@ const modal = document.getElementById("modal1");
 const modalImage = document.getElementById("modalImage");
 const table = document.getElementById("table");
 const loginModal = document.getElementById("loginModal");
+// auth buttons
+const login = document.getElementById("login");
+const logout = document.getElementById("logout");
 // 
 let gridLocations = [
     gridLocation1,
@@ -336,7 +339,7 @@ function hideAuthOnStart() {
         showAuthButton("login");
     }
 }
-function logout() {
+function logouter() {
     localStorage.setItem('currentUser', 'null');
     storedUser = localStorage.getItem('currentUser');
     console.log(storedUser);
