@@ -67,6 +67,10 @@ table {
     z-index: 1;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* nav bar*/
 
 .topnav {
