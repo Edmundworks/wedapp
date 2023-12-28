@@ -8,7 +8,7 @@ table {
 
 
   body {
-    background-color: beige; 
+    background-color: #F5F5F5; 
   }  
 
   img {
@@ -74,7 +74,7 @@ body {
 /* nav bar*/
 
 .topnav {
-  background-color: #333;
+  background-color: #3C3C3C;
   overflow: hidden;
 }
 
@@ -90,7 +90,7 @@ body {
 
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #575757;
   color: black;
 }
 
@@ -107,6 +107,6 @@ body {
 }
 
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #D4AF37;
   color: white;
 }
