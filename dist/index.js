@@ -222,7 +222,6 @@ function disableButtonChecker(type) {
             backButton.classList.add("grey-hover");
         }
         else {
-            forwardButton.hidden = false;
             backButton.style.color = "grey";
             backButton.classList.add("grey-hover");
             backButton.addEventListener("click", preventDefaultClick);
@@ -241,7 +240,6 @@ function disableButtonChecker(type) {
             forwardButton.style.color = "grey";
             forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
-            backButton.hidden = false;
         }
     }
 }
