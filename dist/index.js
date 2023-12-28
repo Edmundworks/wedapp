@@ -207,31 +207,39 @@ function disableButtonChecker(type) {
         targetPageCount = boardPageCount;
     }
     forwardButton.style.removeProperty("color");
+    forwardButton.disabled = false;
     forwardButton.classList.remove("grey-hover");
     backButton.style.removeProperty("color");
+    backButton.disabled = false;
     backButton.classList.remove("grey-hover");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
             forwardButton.style.color = "grey";
+            forwardButton.disabled = true;
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
+            forwardButton.disabled = true;
             backButton.classList.add("grey-hover");
         }
         else {
             forwardButton.hidden = false;
             backButton.style.color = "grey";
             backButton.classList.add("grey-hover");
+            backButton.disabled = true;
         }
     }
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
             forwardButton.style.color = "grey";
+            forwardButton.disabled = true;
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
+            backButton.disabled = true;
             backButton.classList.add("grey-hover");
         }
         else {
             forwardButton.style.color = "grey";
+            forwardButton.disabled = true;
             forwardButton.classList.add("grey-hover");
             backButton.hidden = false;
         }
@@ -376,8 +384,8 @@ function logouter() {
     alert("Logged Out");
     login.style.display = "block";
 }
-// password validation (replace with call to backend)
-// Define a valid username and password (you should replace these with your actual validation logic)
+// password validation (replace with call to backend in future)
+// Define a valid username and password 
 const validUsername = 'user123';
 const validPassword = 'pass123';
 // Function to validate the form on submission
