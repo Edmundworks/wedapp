@@ -247,38 +247,38 @@ function disableButtonChecker(type: PageType) {
     }
 
     forwardButton.style.removeProperty("color");
-    forwardButton.removeEventListener("click", preventDefaultClick);
+    forwardButton.onclick = null;
     forwardButton.classList.remove("grey-hover");
 
     backButton.style.removeProperty("color");
-    backButton.removeEventListener("click", preventDefaultClick);
+    backButton.onclick = null;
     backButton.classList.remove("grey-hover");
 
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
             forwardButton.style.color = "grey";
-            forwardButton.addEventListener("click", preventDefaultClick);
+            forwardButton.onclick = preventDefaultClick;
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
-            backButton.addEventListener("click", preventDefaultClick);
+            backButton.onclick = preventDefaultClick;
             backButton.classList.add("grey-hover");
         } else { 
             backButton.style.color = "grey";
             backButton.classList.add("grey-hover");
-            backButton.addEventListener("click", preventDefaultClick);
+            backButton.onclick = preventDefaultClick;
         }
     } 
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
             forwardButton.style.color = "grey";
-            forwardButton.addEventListener("click", preventDefaultClick);
+            forwardButton.onclick = preventDefaultClick;
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
-            backButton.addEventListener("click", preventDefaultClick);
+            backButton.onclick = preventDefaultClick;
             backButton.classList.add("grey-hover");
         } else {
             forwardButton.style.color = "grey";
-            forwardButton.addEventListener("click", preventDefaultClick);
+            forwardButton.onclick = preventDefaultClick;
             forwardButton.classList.add("grey-hover");
          }
         
@@ -446,6 +446,7 @@ function logouter() {
 
 function preventDefaultClick(event: Event) {
     event.preventDefault();
+    event.stopPropagation();
     console.log("Custom click handler");
 }
 
