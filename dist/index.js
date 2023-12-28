@@ -207,10 +207,10 @@ function disableButtonChecker(type) {
         targetPageCount = boardPageCount;
     }
     forwardButton.style.removeProperty("color");
-    forwardButton.onclick = null;
+    // forwardButton.onclick = null;
     forwardButton.classList.remove("grey-hover");
     backButton.style.removeProperty("color");
-    backButton.onclick = null;
+    // backButton.onclick = null;
     backButton.classList.remove("grey-hover");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
