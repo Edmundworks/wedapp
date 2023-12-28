@@ -74,7 +74,7 @@ body {
 /* nav bar*/
 
 .topnav {
-  background-color: #3C3C3C;
+  background-color: #2D3E50;
   overflow: hidden;
 }
 
@@ -90,7 +90,7 @@ body {
 
 
 .topnav a:hover {
-  background-color: #575757;
+  background-color: #E8C07D;
   color: black;
 }
 
