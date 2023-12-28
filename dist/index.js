@@ -207,10 +207,12 @@ function disableButtonChecker(type) {
         targetPageCount = boardPageCount;
     }
     forwardButton.style.removeProperty("color");
-    // forwardButton.onclick = null;
+    forwardButton.onclick = null;
+    forwardButton.onclick = forwardWrapper;
     forwardButton.classList.remove("grey-hover");
     backButton.style.removeProperty("color");
-    // backButton.onclick = null;
+    backButton.onclick = null;
+    backButton.onclick = backWrapper;
     backButton.classList.remove("grey-hover");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
@@ -386,6 +388,20 @@ function preventDefaultClick(event) {
     event.preventDefault();
     event.stopPropagation();
     console.log("Custom click handler");
+}
+function forwardWrapper() {
+    changePage(currentPageType, PageDirection.forward);
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();
+}
+function backWrapper() {
+    changePage(currentPageType, PageDirection.back);
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();
 }
 // password validation (replace with call to backend in future)
 // Define a valid username and password 
