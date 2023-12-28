@@ -258,28 +258,28 @@ function disableButtonChecker(type: PageType) {
 
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
-            forwardButton.style.color = "grey";
+            forwardButton.style.color = "#A0A0A0";
             forwardButton.onclick = preventDefaultClick;
             forwardButton.classList.add("grey-hover");
-            backButton.style.color = "grey";
+            backButton.style.color = "#A0A0A0";
             backButton.onclick = preventDefaultClick;
             backButton.classList.add("grey-hover");
         } else { 
-            backButton.style.color = "grey";
+            backButton.style.color = "#A0A0A0";
             backButton.classList.add("grey-hover");
             backButton.onclick = preventDefaultClick;
         }
     } 
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
-            forwardButton.style.color = "grey";
+            forwardButton.style.color = "#A0A0A0";
             forwardButton.onclick = preventDefaultClick;
             forwardButton.classList.add("grey-hover");
-            backButton.style.color = "grey";
+            backButton.style.color = "#A0A0A0";
             backButton.onclick = preventDefaultClick;
             backButton.classList.add("grey-hover");
         } else {
-            forwardButton.style.color = "grey";
+            forwardButton.style.color = "#A0A0A0";
             forwardButton.onclick = preventDefaultClick;
             forwardButton.classList.add("grey-hover");
          }
