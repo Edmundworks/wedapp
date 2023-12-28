@@ -55,8 +55,8 @@ checkboxes.forEach((item) => {
 
 // navigation buttons
 
-const forwardButton = document.getElementById("forward") as HTMLElement;
-const backButton = document.getElementById("back") as HTMLElement;
+const forwardButton = document.getElementById("forward") as HTMLAnchorElement;
+const backButton = document.getElementById("back") as HTMLAnchorElement;
 
 const pageNumberDisplay = document.getElementById("pageNumber") as HTMLElement;
 
@@ -444,7 +444,7 @@ function logouter() {
     
 }
 
-function preventDefaultClick(event: Event) {
+function preventDefaultClick(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
     console.log("Custom click handler");
