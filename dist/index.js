@@ -207,39 +207,39 @@ function disableButtonChecker(type) {
         targetPageCount = boardPageCount;
     }
     forwardButton.style.removeProperty("color");
-    forwardButton.disabled = false;
+    forwardButton.removeEventListener("click", preventDefaultClick);
     forwardButton.classList.remove("grey-hover");
     backButton.style.removeProperty("color");
-    backButton.disabled = false;
+    backButton.removeEventListener("click", preventDefaultClick);
     backButton.classList.remove("grey-hover");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
             forwardButton.style.color = "grey";
-            forwardButton.disabled = true;
+            forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
-            forwardButton.disabled = true;
+            backButton.addEventListener("click", preventDefaultClick);
             backButton.classList.add("grey-hover");
         }
         else {
             forwardButton.hidden = false;
             backButton.style.color = "grey";
             backButton.classList.add("grey-hover");
-            backButton.disabled = true;
+            backButton.addEventListener("click", preventDefaultClick);
         }
     }
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
             forwardButton.style.color = "grey";
-            forwardButton.disabled = true;
+            forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
-            backButton.disabled = true;
+            backButton.addEventListener("click", preventDefaultClick);
             backButton.classList.add("grey-hover");
         }
         else {
             forwardButton.style.color = "grey";
-            forwardButton.disabled = true;
+            forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
             backButton.hidden = false;
         }
@@ -383,6 +383,10 @@ function logouter() {
     toggleNavigation();
     alert("Logged Out");
     login.style.display = "block";
+}
+function preventDefaultClick(event) {
+    event.preventDefault();
+    console.log("Custom click handler");
 }
 // password validation (replace with call to backend in future)
 // Define a valid username and password 

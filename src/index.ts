@@ -27,8 +27,8 @@ const currentPageText = document.getElementById("currentPageType") as HTMLElemen
 
 // Nav buttons
 
-const navAll = document.getElementById("navAll") as HTMLButtonElement;
-const navBoard = document.getElementById("navBoard") as HTMLButtonElement;
+const navAll = document.getElementById("navAll") as HTMLElement;
+const navBoard = document.getElementById("navBoard") as HTMLElement;
 
 const myButton = document.getElementById("myBTN") as HTMLButtonElement;
 
@@ -55,8 +55,8 @@ checkboxes.forEach((item) => {
 
 // navigation buttons
 
-const forwardButton = document.getElementById("forward") as HTMLButtonElement;
-const backButton = document.getElementById("back") as HTMLButtonElement;
+const forwardButton = document.getElementById("forward") as HTMLElement;
+const backButton = document.getElementById("back") as HTMLElement;
 
 const pageNumberDisplay = document.getElementById("pageNumber") as HTMLElement;
 
@@ -247,39 +247,39 @@ function disableButtonChecker(type: PageType) {
     }
 
     forwardButton.style.removeProperty("color");
-    forwardButton.disabled = false;
+    forwardButton.removeEventListener("click", preventDefaultClick);
     forwardButton.classList.remove("grey-hover");
 
     backButton.style.removeProperty("color");
-    backButton.disabled = false;
+    backButton.removeEventListener("click", preventDefaultClick);
     backButton.classList.remove("grey-hover");
 
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
             forwardButton.style.color = "grey";
-            forwardButton.disabled = true;
+            forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
-            forwardButton.disabled = true;
+            backButton.addEventListener("click", preventDefaultClick);
             backButton.classList.add("grey-hover");
         } else { 
             forwardButton.hidden = false;
             backButton.style.color = "grey";
             backButton.classList.add("grey-hover");
-            backButton.disabled = true;
+            backButton.addEventListener("click", preventDefaultClick);
         }
     } 
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
             forwardButton.style.color = "grey";
-            forwardButton.disabled = true;
+            forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
             backButton.style.color = "grey";
-            backButton.disabled = true;
+            backButton.addEventListener("click", preventDefaultClick);
             backButton.classList.add("grey-hover");
         } else {
             forwardButton.style.color = "grey";
-            forwardButton.disabled = true;
+            forwardButton.addEventListener("click", preventDefaultClick);
             forwardButton.classList.add("grey-hover");
             backButton.hidden = false;
          }
@@ -444,6 +444,11 @@ function logouter() {
     alert("Logged Out");
     login.style.display = "block";
     
+}
+
+function preventDefaultClick(event: Event) {
+    event.preventDefault();
+    console.log("Custom click handler");
 }
 
 // password validation (replace with call to backend in future)
