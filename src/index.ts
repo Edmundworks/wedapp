@@ -247,11 +247,11 @@ function disableButtonChecker(type: PageType) {
     }
 
     forwardButton.style.removeProperty("color");
-    forwardButton.onclick = null;
+    forwardButton.onclick = combinedDirectionClick(currentPageType, PageDirection.forward)!;
     forwardButton.classList.remove("grey-hover");
 
     backButton.style.removeProperty("color");
-    backButton.onclick = null;
+    backButton.onclick = combinedDirectionClick(currentPageType, PageDirection.back)!;
     backButton.classList.remove("grey-hover");
 
     if (targetCurrentPage === 0) {
@@ -449,6 +449,18 @@ function preventDefaultClick(event: MouseEvent) {
     event.stopPropagation();
     console.log("Custom click handler");
 }
+
+// wrapper functions for fwd and back
+
+function combinedDirectionClick(currentPageType: PageType, targetDirection: PageDirection) {
+    changePage(currentPageType, targetDirection); 
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();
+}
+
+
 
 // password validation (replace with call to backend in future)
 
