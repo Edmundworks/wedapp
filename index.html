@@ -25,14 +25,24 @@ hideCheckboxesonStart();">
     <ul>
         <li>
             <a id="back"
-            onclick="combinedDirectionClick(currentPageType, PageDirection.back);">Back</a>    
+            onclick="changePage(currentPageType, PageDirection.back); 
+            displayPageNumber();
+            disableButtonChecker(currentPageType);
+            clearCheckboxes();
+            toggleDisplayCheckboxes();">Back</a>    
         </li>
         <li>
             <a id="pageNumber"></a>
         </li>
         <li>
             <a id="forward" 
-            onclick="combinedDirectionClick(currentPageType, PageDirection.forward);">Forward
+            onclick="changePage(currentPageType, PageDirection.forward); 
+            displayPageNumber();
+            disableButtonChecker(currentPageType);
+            clearCheckboxes();
+            toggleDisplayCheckboxes();">Forward
+            
+            
             </a>      
         </li>
     </ul>
