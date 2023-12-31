@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    
-    <title>Good morning</title>
+    <title>Wedapp</title>
     <script defer src="./dist/index.js"></script>
-
 </head>
 <body onload="newSetGridPictures(PageType.all, 0);
 setPageType(PageType.all);
@@ -18,8 +16,6 @@ hideAuthOnStart();
 hideCheckboxesonStart();">
 
 <div class="topnav">
-
-
 
 <span id="backFwdNavigation">
     <ul>
@@ -40,18 +36,11 @@ hideCheckboxesonStart();">
             displayPageNumber();
             disableButtonChecker(currentPageType);
             clearCheckboxes();
-            toggleDisplayCheckboxes();">Forward
-            
-            
-            </a>      
+            toggleDisplayCheckboxes();">Forward</a>      
         </li>
     </ul>
     </span>
-    
-    
         <h2  id="currentPageType" class="hiddenText"></h2>
-    
-
     <span id="navigation">
         <ul>
             <li>
@@ -61,10 +50,7 @@ hideCheckboxesonStart();">
                 disableButtonChecker(currentPageType);
                 clearCheckboxes();
                 toggleDisplayCheckboxes();
-                activateElement(navAll);
-        ">
-            All
-            </a>
+                activateElement(navAll);">All</a>
             </li>
             <li>
                 <a id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
@@ -72,8 +58,7 @@ hideCheckboxesonStart();">
         hideCheckboxes();
         displayPageNumber();
         disableButtonChecker(currentPageType);
-        activateElement(navBoard);
-        ">
+        activateElement(navBoard);">
           Favourites
             </a>
             </li>
@@ -82,20 +67,15 @@ hideCheckboxesonStart();">
             </li>
         </ul>
         </span>
-
         <span id="auth"> 
-
         <span id="login" class="auth-button">
             <a id="loginBtn" onclick="openLoginModal()">Login</a>
         </span>
-
         <span id="logout" class="auth-button">
             <a id="logoutBtn" onclick="logouter()" >Logout</a>
         </span>
-
         </span>
     </div>        
-
     <div id="modal1" class="modal">
         <img id="modalImage" src="">
         <span class="close">
