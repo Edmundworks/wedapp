@@ -285,8 +285,6 @@ function disableButtonChecker(type: PageType) {
 
 function openImageModal(reference: HTMLImageElement) {
     modal.style.display = "block";
-    modal.style.maxHeight = "auto";
-    modalImage.style.maxHeight = "auto";
     modalImage.src = reference.src;
     hideTable();
 }
@@ -299,7 +297,6 @@ function openLoginModal() {
 
 function closeModal(targetModal: HTMLElement) {
     targetModal.style.display = "none";
-    modalImage.style.maxHeight = "294px";
     showTable();
 }
 
