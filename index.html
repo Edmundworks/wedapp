@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    
-    <title>Good morning</title>
+    <title>Wedapp</title>
     <script defer src="./dist/index.js"></script>
-
 </head>
 <body onload="newSetGridPictures(PageType.all, 0);
 setPageType(PageType.all);
@@ -17,75 +15,67 @@ toggleNavigation();
 hideAuthOnStart();
 hideCheckboxesonStart();">
 
+<div class="topnav">
+
 <span id="backFwdNavigation">
     <ul>
         <li>
-            <button id="back"
+            <a id="back"
             onclick="changePage(currentPageType, PageDirection.back); 
             displayPageNumber();
             disableButtonChecker(currentPageType);
             clearCheckboxes();
-            toggleDisplayCheckboxes();">Click to go back</button>    
+            toggleDisplayCheckboxes();">Back</a>    
         </li>
         <li>
-            <h2 id="pageNumber"></h2>
+            <a id="pageNumber"></a>
         </li>
         <li>
-            <button id="forward" 
+            <a id="forward" 
             onclick="changePage(currentPageType, PageDirection.forward); 
             displayPageNumber();
             disableButtonChecker(currentPageType);
             clearCheckboxes();
-            toggleDisplayCheckboxes();">Click to go forward</button>      
+            toggleDisplayCheckboxes();">Forward</a>      
         </li>
     </ul>
     </span>
-    
-    
         <h2  id="currentPageType" class="hiddenText"></h2>
-    
-
     <span id="navigation">
         <ul>
             <li>
-                <button id="navAll" onclick="newSetGridPictures(PageType.all, 0);
+                <a id="navAll" onclick="newSetGridPictures(PageType.all, 0);
                 setPageType(PageType.all);
                 displayPageNumber();
                 disableButtonChecker(currentPageType);
                 clearCheckboxes();
                 toggleDisplayCheckboxes();
-        ">
-            Go to all photos
-            </button>
+                activateElement(navAll);">All</a>
             </li>
             <li>
-                <button id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
+                <a id="navBoard" onclick="newSetGridPictures(PageType.board, 0);
         setPageType(PageType.board);
         hideCheckboxes();
         displayPageNumber();
         disableButtonChecker(currentPageType);
-        ">
-          Go to favourites
-        </button>
+        activateElement(navBoard);">
+          Favourites
+            </a>
             </li>
             <li>
-                <button id="share">Share</button>
+                <a id="share">Share</a>
             </li>
         </ul>
         </span>
-
         <span id="auth"> 
-
         <span id="login" class="auth-button">
-            <button id="loginBtn" onclick="openLoginModal()">Login</button>
+            <a id="loginBtn" onclick="openLoginModal()">Login</a>
         </span>
-
         <span id="logout" class="auth-button">
-            <button id="logoutBtn" onclick="logouter()" >Logout</button>
+            <a id="logoutBtn" onclick="logouter()" >Logout</a>
         </span>
-
         </span>
-
+    </div>        
     <div id="modal1" class="modal">
         <img id="modalImage" src="">
         <span class="close">
@@ -166,4 +156,3 @@ hideCheckboxesonStart();">
     </form>
 </body>
 </html>
-

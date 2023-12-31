@@ -1,6 +1,4 @@
-console.log("Hello, world");
-console.log("good morning");
-
+// Elements for photo grid
 
 const gridLocation1 = document.getElementById("gridRef1")! as HTMLImageElement;
 const gridLocation2 = document.getElementById("gridRef2")! as HTMLImageElement;
@@ -17,8 +15,6 @@ const gridLocation9 = document.getElementById("gridRef9")! as HTMLImageElement;
 let isLoggedIn = false;
 let storedUser: string | null = localStorage.getItem('currentUser');
 
-
-
 const navigation = document.getElementById("navigation") as HTMLElement;
 
 // Current Page
@@ -27,9 +23,8 @@ const currentPageText = document.getElementById("currentPageType") as HTMLElemen
 
 // Nav buttons
 
-const navAll = document.getElementById("navAll") as HTMLButtonElement;
-const navBoard = document.getElementById("navBoard") as HTMLButtonElement;
-
+const navAll = document.getElementById("navAll") as HTMLElement;
+const navBoard = document.getElementById("navBoard") as HTMLElement;
 const myButton = document.getElementById("myBTN") as HTMLButtonElement;
 
 // form and checkboxes
@@ -39,7 +34,7 @@ const tableForm = document.getElementById("tableForm") as HTMLFormElement;
 // add event listener for all checkboxes
 const checkboxes = Array.from(document.querySelectorAll(".checkbox"));
 
-// event listener
+// event listener for checkboxes
 
 checkboxes.forEach((item) => {
     let checkbox = item as HTMLInputElement;
@@ -55,8 +50,8 @@ checkboxes.forEach((item) => {
 
 // navigation buttons
 
-const forwardButton = document.getElementById("forward") as HTMLButtonElement;
-const backButton = document.getElementById("back") as HTMLButtonElement;
+const forwardButton = document.getElementById("forward") as HTMLAnchorElement;
+const backButton = document.getElementById("back") as HTMLAnchorElement;
 
 const pageNumberDisplay = document.getElementById("pageNumber") as HTMLElement;
 
@@ -71,7 +66,7 @@ const loginModal = document.getElementById("loginModal") as HTMLElement;
 const login = document.getElementById("login") as HTMLElement;
 const logout = document.getElementById("logout") as HTMLElement;
 
-// 
+// grid location array
 
 let gridLocations = [
     gridLocation1,
@@ -85,6 +80,7 @@ let gridLocations = [
     gridLocation9
 ]
 
+// type definitions
 
 type Photo = {
     id: number;
@@ -96,7 +92,9 @@ type Photo = {
 
 type User = {
     // todo
-    }
+}
+
+// hardcode photos
 
 let photos: Photo[] = [
     { id: 1, source: "images/Baxter Wed_1.jpg", isPinned: false},
@@ -127,7 +125,7 @@ let photos: Photo[] = [
 
 let pinnedPhotos = new Set();
 
-// hardcoded for now, future iterations will change this
+// set pagecounts
 const photoCount = photos.length;
 
 let pageCount = Math.ceil(photoCount / 9);
@@ -142,8 +140,7 @@ let targetCurrentPage = 0;
 
 enum PageType {all, board};
 
-// NOTE - I updated this to change the global currentPage variable based on what 
-// is passed to it here
+// update grid pictures for new page
 
 function newSetGridPictures(type: PageType, pageNumber: number) {
     targetCurrentPage = pageNumber;
@@ -206,13 +203,9 @@ function setPageType(typeToggle: PageType) {
     if (typeToggle === PageType.all) {
         currentPageType = PageType.all
         currentPageText.textContent = "All Photos";
-        navAll.hidden = true;
-        navBoard.hidden = false;
     } else if (typeToggle === PageType.board) {
        currentPageType = PageType.board;
        currentPageText.textContent = "Your board";
-       navAll.hidden = false;
-       navBoard.hidden = true; 
     }
 
 }
@@ -240,7 +233,6 @@ function disableButtonChecker(type: PageType) {
     // refactor into a new function
     // this works but looks as janky as hell
     
-    
     let targetPageCount;
     if (type === PageType.all) {
        targetCurrentPage = currentPage;
@@ -250,25 +242,42 @@ function disableButtonChecker(type: PageType) {
         targetPageCount = boardPageCount;
     }
 
-    forwardButton.hidden = false;
-    backButton.hidden = false;
+    forwardButton.style.removeProperty("color");
+    forwardButton.onclick = null;
+    forwardButton.onclick = forwardWrapper;
+    forwardButton.classList.remove("grey-hover");
+
+    backButton.style.removeProperty("color");
+    backButton.onclick = null;
+    backButton.onclick = backWrapper;
+    backButton.classList.remove("grey-hover");
 
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
-            forwardButton.hidden = true;
-            backButton.hidden = true;
+            forwardButton.style.color = "#A0A0A0";
+            forwardButton.onclick = preventDefaultClick;
+            forwardButton.classList.add("grey-hover");
+            backButton.style.color = "#A0A0A0";
+            backButton.onclick = preventDefaultClick;
+            backButton.classList.add("grey-hover");
         } else { 
-            forwardButton.hidden = false;
-            backButton.hidden = true;
+            backButton.style.color = "#A0A0A0";
+            backButton.classList.add("grey-hover");
+            backButton.onclick = preventDefaultClick;
         }
     } 
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
-            forwardButton.hidden = true;
-            backButton.hidden = true;
+            forwardButton.style.color = "#A0A0A0";
+            forwardButton.onclick = preventDefaultClick;
+            forwardButton.classList.add("grey-hover");
+            backButton.style.color = "#A0A0A0";
+            backButton.onclick = preventDefaultClick;
+            backButton.classList.add("grey-hover");
         } else {
-            forwardButton.hidden = true;
-        backButton.hidden = false;
+            forwardButton.style.color = "#A0A0A0";
+            forwardButton.onclick = preventDefaultClick;
+            forwardButton.classList.add("grey-hover");
          }
         
     }  
@@ -379,7 +388,6 @@ function toggleNavigation() {
     }
 }
 
-
 function hideAuthOnStart() {
     if (storedUser) {
         hideAuthButton("login");
@@ -400,9 +408,18 @@ function hideCheckboxesonStart() {
     }
 }
 
-// the issue is that the login button doesn't toggle back on when I click logout
-// WHY DOESN@T LOGOUT WORK?
-
+  function activateElement(element: HTMLElement) {
+    // Get all elements with the "active" class
+    const activeElements = document.querySelectorAll('.active');
+  
+    // Iterate through each active element and remove the "active" class
+    activeElements.forEach((activeElement) => {
+      activeElement.classList.remove('active');
+    });
+  
+    // Toggle the "active" class on the clicked element
+    element.classList.toggle('active');
+  }
 
 function logouter() {
     localStorage.removeItem('currentUser')
@@ -415,9 +432,33 @@ function logouter() {
     
 }
 
-// password validation (replace with call to backend)
+function preventDefaultClick(event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("Custom click handler");
+}
 
-// Define a valid username and password (you should replace these with your actual validation logic)
+// wrapper functions that bundles all new page functions into one
+
+function forwardWrapper() {
+        changePage(currentPageType, PageDirection.forward); 
+        displayPageNumber();
+        disableButtonChecker(currentPageType);
+        clearCheckboxes();
+        toggleDisplayCheckboxes();
+}
+
+function backWrapper() {
+    changePage(currentPageType, PageDirection.back); 
+        displayPageNumber();
+        disableButtonChecker(currentPageType);
+        clearCheckboxes();
+        toggleDisplayCheckboxes();
+}
+
+// password validation (replace with call to backend in future)
+
+// Define a valid username and password 
 const validUsername = 'user123';
 const validPassword = 'pass123';
 

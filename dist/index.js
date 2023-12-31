@@ -1,6 +1,5 @@
 "use strict";
-console.log("Hello, world");
-console.log("good morning");
+// Elements for photo grid
 const gridLocation1 = document.getElementById("gridRef1");
 const gridLocation2 = document.getElementById("gridRef2");
 const gridLocation3 = document.getElementById("gridRef3");
@@ -24,7 +23,7 @@ const myButton = document.getElementById("myBTN");
 const tableForm = document.getElementById("tableForm");
 // add event listener for all checkboxes
 const checkboxes = Array.from(document.querySelectorAll(".checkbox"));
-// event listener
+// event listener for checkboxes
 checkboxes.forEach((item) => {
     let checkbox = item;
     item.addEventListener("change", function () {
@@ -48,7 +47,7 @@ const loginModal = document.getElementById("loginModal");
 // auth buttons
 const login = document.getElementById("login");
 const logout = document.getElementById("logout");
-// 
+// grid location array
 let gridLocations = [
     gridLocation1,
     gridLocation2,
@@ -60,6 +59,7 @@ let gridLocations = [
     gridLocation8,
     gridLocation9
 ];
+// hardcode photos
 let photos = [
     { id: 1, source: "images/Baxter Wed_1.jpg", isPinned: false },
     { id: 2, source: "images/Baxter Wed_2.jpg", isPinned: false },
@@ -86,7 +86,7 @@ let photos = [
     { id: 23, source: "images/Baxter Wed_23.jpg", isPinned: false },
 ];
 let pinnedPhotos = new Set();
-// hardcoded for now, future iterations will change this
+// set pagecounts
 const photoCount = photos.length;
 let pageCount = Math.ceil(photoCount / 9);
 let boardPageCount = Math.ceil(pinnedPhotos.size / 9);
@@ -99,8 +99,7 @@ var PageType;
     PageType[PageType["board"] = 1] = "board";
 })(PageType || (PageType = {}));
 ;
-// NOTE - I updated this to change the global currentPage variable based on what 
-// is passed to it here
+// update grid pictures for new page
 function newSetGridPictures(type, pageNumber) {
     targetCurrentPage = pageNumber;
     let photoNumberBase = pageNumber * 9;
@@ -167,14 +166,10 @@ function setPageType(typeToggle) {
     if (typeToggle === PageType.all) {
         currentPageType = PageType.all;
         currentPageText.textContent = "All Photos";
-        navAll.hidden = true;
-        navBoard.hidden = false;
     }
     else if (typeToggle === PageType.board) {
         currentPageType = PageType.board;
         currentPageText.textContent = "Your board";
-        navAll.hidden = false;
-        navBoard.hidden = true;
     }
 }
 function displayPageNumber() {
@@ -210,26 +205,42 @@ function disableButtonChecker(type) {
         targetCurrentPage = boardCurrentPage;
         targetPageCount = boardPageCount;
     }
-    forwardButton.hidden = false;
-    backButton.hidden = false;
+    forwardButton.style.removeProperty("color");
+    forwardButton.onclick = null;
+    forwardButton.onclick = forwardWrapper;
+    forwardButton.classList.remove("grey-hover");
+    backButton.style.removeProperty("color");
+    backButton.onclick = null;
+    backButton.onclick = backWrapper;
+    backButton.classList.remove("grey-hover");
     if (targetCurrentPage === 0) {
         if (targetPageCount === 0) {
-            forwardButton.hidden = true;
-            backButton.hidden = true;
+            forwardButton.style.color = "#A0A0A0";
+            forwardButton.onclick = preventDefaultClick;
+            forwardButton.classList.add("grey-hover");
+            backButton.style.color = "#A0A0A0";
+            backButton.onclick = preventDefaultClick;
+            backButton.classList.add("grey-hover");
         }
         else {
-            forwardButton.hidden = false;
-            backButton.hidden = true;
+            backButton.style.color = "#A0A0A0";
+            backButton.classList.add("grey-hover");
+            backButton.onclick = preventDefaultClick;
         }
     }
     if (targetCurrentPage + 1 === targetPageCount) {
         if (targetCurrentPage === 0) {
-            forwardButton.hidden = true;
-            backButton.hidden = true;
+            forwardButton.style.color = "#A0A0A0";
+            forwardButton.onclick = preventDefaultClick;
+            forwardButton.classList.add("grey-hover");
+            backButton.style.color = "#A0A0A0";
+            backButton.onclick = preventDefaultClick;
+            backButton.classList.add("grey-hover");
         }
         else {
-            forwardButton.hidden = true;
-            backButton.hidden = false;
+            forwardButton.style.color = "#A0A0A0";
+            forwardButton.onclick = preventDefaultClick;
+            forwardButton.classList.add("grey-hover");
         }
     }
 }
@@ -347,8 +358,16 @@ function hideCheckboxesonStart() {
         hideCheckboxes();
     }
 }
-// the issue is that the login button doesn't toggle back on when I click logout
-// WHY DOESN@T LOGOUT WORK?
+function activateElement(element) {
+    // Get all elements with the "active" class
+    const activeElements = document.querySelectorAll('.active');
+    // Iterate through each active element and remove the "active" class
+    activeElements.forEach((activeElement) => {
+        activeElement.classList.remove('active');
+    });
+    // Toggle the "active" class on the clicked element
+    element.classList.toggle('active');
+}
 function logouter() {
     localStorage.removeItem('currentUser');
     storedUser = localStorage.getItem('currentUser');
@@ -358,8 +377,28 @@ function logouter() {
     alert("Logged Out");
     login.style.display = "block";
 }
-// password validation (replace with call to backend)
-// Define a valid username and password (you should replace these with your actual validation logic)
+function preventDefaultClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("Custom click handler");
+}
+// wrapper functions that bundles all new page functions into one
+function forwardWrapper() {
+    changePage(currentPageType, PageDirection.forward);
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();
+}
+function backWrapper() {
+    changePage(currentPageType, PageDirection.back);
+    displayPageNumber();
+    disableButtonChecker(currentPageType);
+    clearCheckboxes();
+    toggleDisplayCheckboxes();
+}
+// password validation (replace with call to backend in future)
+// Define a valid username and password 
 const validUsername = 'user123';
 const validPassword = 'pass123';
 // Function to validate the form on submission
