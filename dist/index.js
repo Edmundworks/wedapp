@@ -246,6 +246,8 @@ function disableButtonChecker(type) {
 }
 function openImageModal(reference) {
     modal.style.display = "block";
+    modal.style.maxHeight = "auto";
+    modalImage.style.maxHeight = "auto";
     modalImage.src = reference.src;
     hideTable();
 }
@@ -256,6 +258,7 @@ function openLoginModal() {
 }
 function closeModal(targetModal) {
     targetModal.style.display = "none";
+    modalImage.style.maxHeight = "294px";
     showTable();
 }
 function hideTable() {
