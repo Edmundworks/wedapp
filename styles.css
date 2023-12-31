@@ -14,6 +14,7 @@ table {
   img {
     width: 100%;
     height: auto;
+    max-height: 30%;
     object-fit: cover;
     
     
