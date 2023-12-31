@@ -1,6 +1,4 @@
-console.log("Hello, world");
-console.log("good morning");
-
+// Elements for photo grid
 
 const gridLocation1 = document.getElementById("gridRef1")! as HTMLImageElement;
 const gridLocation2 = document.getElementById("gridRef2")! as HTMLImageElement;
@@ -17,8 +15,6 @@ const gridLocation9 = document.getElementById("gridRef9")! as HTMLImageElement;
 let isLoggedIn = false;
 let storedUser: string | null = localStorage.getItem('currentUser');
 
-
-
 const navigation = document.getElementById("navigation") as HTMLElement;
 
 // Current Page
@@ -29,7 +25,6 @@ const currentPageText = document.getElementById("currentPageType") as HTMLElemen
 
 const navAll = document.getElementById("navAll") as HTMLElement;
 const navBoard = document.getElementById("navBoard") as HTMLElement;
-
 const myButton = document.getElementById("myBTN") as HTMLButtonElement;
 
 // form and checkboxes
@@ -39,7 +34,7 @@ const tableForm = document.getElementById("tableForm") as HTMLFormElement;
 // add event listener for all checkboxes
 const checkboxes = Array.from(document.querySelectorAll(".checkbox"));
 
-// event listener
+// event listener for checkboxes
 
 checkboxes.forEach((item) => {
     let checkbox = item as HTMLInputElement;
@@ -71,7 +66,7 @@ const loginModal = document.getElementById("loginModal") as HTMLElement;
 const login = document.getElementById("login") as HTMLElement;
 const logout = document.getElementById("logout") as HTMLElement;
 
-// 
+// grid location array
 
 let gridLocations = [
     gridLocation1,
@@ -85,6 +80,7 @@ let gridLocations = [
     gridLocation9
 ]
 
+// type definitions
 
 type Photo = {
     id: number;
@@ -96,7 +92,9 @@ type Photo = {
 
 type User = {
     // todo
-    }
+}
+
+// hardcode photos
 
 let photos: Photo[] = [
     { id: 1, source: "images/Baxter Wed_1.jpg", isPinned: false},
@@ -127,7 +125,7 @@ let photos: Photo[] = [
 
 let pinnedPhotos = new Set();
 
-// hardcoded for now, future iterations will change this
+// set pagecounts
 const photoCount = photos.length;
 
 let pageCount = Math.ceil(photoCount / 9);
@@ -142,8 +140,7 @@ let targetCurrentPage = 0;
 
 enum PageType {all, board};
 
-// NOTE - I updated this to change the global currentPage variable based on what 
-// is passed to it here
+// update grid pictures for new page
 
 function newSetGridPictures(type: PageType, pageNumber: number) {
     targetCurrentPage = pageNumber;
@@ -235,7 +232,6 @@ function displayPageNumber() {
 function disableButtonChecker(type: PageType) {
     // refactor into a new function
     // this works but looks as janky as hell
-    
     
     let targetPageCount;
     if (type === PageType.all) {
@@ -392,7 +388,6 @@ function toggleNavigation() {
     }
 }
 
-
 function hideAuthOnStart() {
     if (storedUser) {
         hideAuthButton("login");
@@ -413,11 +408,6 @@ function hideCheckboxesonStart() {
     }
 }
 
-// function toggleActive(element: HTMLElement) {
-//     // Toggle the "active" class on the clicked element
-//     element.classList.toggle('active');
-//   }
-
   function activateElement(element: HTMLElement) {
     // Get all elements with the "active" class
     const activeElements = document.querySelectorAll('.active');
@@ -430,10 +420,6 @@ function hideCheckboxesonStart() {
     // Toggle the "active" class on the clicked element
     element.classList.toggle('active');
   }
-
-// the issue is that the login button doesn't toggle back on when I click logout
-// WHY DOESN@T LOGOUT WORK?
-
 
 function logouter() {
     localStorage.removeItem('currentUser')
@@ -451,6 +437,8 @@ function preventDefaultClick(event: MouseEvent) {
     event.stopPropagation();
     console.log("Custom click handler");
 }
+
+// wrapper functions that bundles all new page functions into one
 
 function forwardWrapper() {
         changePage(currentPageType, PageDirection.forward); 

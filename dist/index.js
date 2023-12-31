@@ -1,6 +1,5 @@
 "use strict";
-console.log("Hello, world");
-console.log("good morning");
+// Elements for photo grid
 const gridLocation1 = document.getElementById("gridRef1");
 const gridLocation2 = document.getElementById("gridRef2");
 const gridLocation3 = document.getElementById("gridRef3");
@@ -24,7 +23,7 @@ const myButton = document.getElementById("myBTN");
 const tableForm = document.getElementById("tableForm");
 // add event listener for all checkboxes
 const checkboxes = Array.from(document.querySelectorAll(".checkbox"));
-// event listener
+// event listener for checkboxes
 checkboxes.forEach((item) => {
     let checkbox = item;
     item.addEventListener("change", function () {
@@ -48,7 +47,7 @@ const loginModal = document.getElementById("loginModal");
 // auth buttons
 const login = document.getElementById("login");
 const logout = document.getElementById("logout");
-// 
+// grid location array
 let gridLocations = [
     gridLocation1,
     gridLocation2,
@@ -60,6 +59,7 @@ let gridLocations = [
     gridLocation8,
     gridLocation9
 ];
+// hardcode photos
 let photos = [
     { id: 1, source: "images/Baxter Wed_1.jpg", isPinned: false },
     { id: 2, source: "images/Baxter Wed_2.jpg", isPinned: false },
@@ -86,7 +86,7 @@ let photos = [
     { id: 23, source: "images/Baxter Wed_23.jpg", isPinned: false },
 ];
 let pinnedPhotos = new Set();
-// hardcoded for now, future iterations will change this
+// set pagecounts
 const photoCount = photos.length;
 let pageCount = Math.ceil(photoCount / 9);
 let boardPageCount = Math.ceil(pinnedPhotos.size / 9);
@@ -99,8 +99,7 @@ var PageType;
     PageType[PageType["board"] = 1] = "board";
 })(PageType || (PageType = {}));
 ;
-// NOTE - I updated this to change the global currentPage variable based on what 
-// is passed to it here
+// update grid pictures for new page
 function newSetGridPictures(type, pageNumber) {
     targetCurrentPage = pageNumber;
     let photoNumberBase = pageNumber * 9;
@@ -359,10 +358,6 @@ function hideCheckboxesonStart() {
         hideCheckboxes();
     }
 }
-// function toggleActive(element: HTMLElement) {
-//     // Toggle the "active" class on the clicked element
-//     element.classList.toggle('active');
-//   }
 function activateElement(element) {
     // Get all elements with the "active" class
     const activeElements = document.querySelectorAll('.active');
@@ -373,8 +368,6 @@ function activateElement(element) {
     // Toggle the "active" class on the clicked element
     element.classList.toggle('active');
 }
-// the issue is that the login button doesn't toggle back on when I click logout
-// WHY DOESN@T LOGOUT WORK?
 function logouter() {
     localStorage.removeItem('currentUser');
     storedUser = localStorage.getItem('currentUser');
@@ -389,6 +382,7 @@ function preventDefaultClick(event) {
     event.stopPropagation();
     console.log("Custom click handler");
 }
+// wrapper functions that bundles all new page functions into one
 function forwardWrapper() {
     changePage(currentPageType, PageDirection.forward);
     displayPageNumber();
